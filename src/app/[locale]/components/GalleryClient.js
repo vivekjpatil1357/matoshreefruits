@@ -10,15 +10,26 @@ import { formatDate } from "@/lib/localize";
  * Filters run client-side so the page stays prerendered.
  *
  * @param {Array<{id: string, kind: "image"|"video", url: string, thumb: string,
- *   title: string, publishedAt?: string, expiresAt?: string, badge?: string}>} items
+ *   title: string, postId?: string, publishedAt?: string, expiresAt?: string,
+ *   badge?: string}>} items
  */
-export default function GalleryClient({ items, locale, t }) {
+export default function GalleryClient({ items, locale, t, initialPostId = "" }) {
   const [filter, setFilter] = useState("all");
   const [index, setIndex] = useState(null);
 
+  const scopedItems = useMemo(
+    () =>
+      initialPostId
+        ? items.filter((item) => item.postId === initialPostId)
+        : items,
+    [items, initialPostId]
+  );
   const visible = useMemo(
-    () => (filter === "all" ? items : items.filter((i) => i.kind === filter)),
-    [items, filter]
+    () =>
+      filter === "all"
+        ? scopedItems
+        : scopedItems.filter((item) => item.kind === filter),
+    [scopedItems, filter]
   );
 
   const close = useCallback(() => setIndex(null), []);
@@ -42,6 +53,10 @@ export default function GalleryClient({ items, locale, t }) {
       document.body.style.overflow = "";
     };
   }, [index, close, step]);
+
+  useEffect(() => {
+    if (initialPostId && visible.length > 0) setIndex(0);
+  }, [initialPostId, visible.length]);
 
   // Swipe navigation for touch (mobile) — swipe left/right to step.
   const touchX = useRef(null);

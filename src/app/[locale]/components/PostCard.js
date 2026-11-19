@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import WhatsAppButton from "./WhatsAppButton";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { localizedField, formatDate } from "@/lib/localize";
@@ -26,7 +27,12 @@ export default function PostCard({ post, locale, t, aspect = "video" }) {
   const ratio = aspect === "wide" ? "aspect-[16/9]" : "aspect-[4/3]";
 
   return (
-    <article className="flex h-full flex-col overflow-hidden border border-line bg-surface">
+    <article className="relative flex h-full flex-col overflow-hidden border border-line bg-surface">
+      <Link
+        href={`/${locale}/gallery?post=${post._id}`}
+        aria-label={title}
+        className="absolute inset-0 z-10"
+      />
       {hasMedia ? (
         <div className={`relative w-full overflow-hidden bg-brand-soft ${ratio}`}>
           {video ? (
@@ -85,7 +91,7 @@ export default function PostCard({ post, locale, t, aspect = "video" }) {
           <p className="mt-2 line-clamp-3 text-base leading-relaxed text-muted">{body}</p>
         )}
 
-        <div className="mt-auto pt-4">
+        <div className="relative z-20 mt-auto pt-4">
           <WhatsAppButton
             href={buildWhatsAppLink(message)}
             label={t.gallery.enquiry}

@@ -65,8 +65,9 @@ export async function generateMetadata({ params }) {
   return { title: t.gallery.heading, description: t.gallery.sub };
 }
 
-export default async function GalleryPage({ params }) {
+export default async function GalleryPage({ params, searchParams }) {
   const { locale } = await params;
+  const { post: initialPostId = "" } = await searchParams;
   const t = getMessages(locale);
 
   // Only live (published + not expired) posts — expired media never renders.
@@ -75,6 +76,7 @@ export default async function GalleryPage({ params }) {
   const items = posts.flatMap((post) =>
     (post.media || []).map((m, i) => ({
       id: `${post._id}-${i}`,
+      postId: String(post._id),
       kind: isVideo(m) ? "video" : "image",
       url: mediaUrl(m),
       thumb: thumbnailUrl(m, 600) || mediaUrl(m),
@@ -103,7 +105,12 @@ export default async function GalleryPage({ params }) {
         title={t.gallery.heading}
         subtitle={t.gallery.sub}
       />
-      <GalleryClient items={items} locale={locale} t={t} />
+      <GalleryClient
+        items={items}
+        locale={locale}
+        t={t}
+        initialPostId={String(initialPostId)}
+      />
     </div>
   );
 }

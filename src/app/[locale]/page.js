@@ -10,7 +10,6 @@ import SectionHeading from "./components/SectionHeading";
 import StockCard from "./components/StockCard";
 import PostCard from "./components/PostCard";
 import WhatsAppButton from "./components/WhatsAppButton";
-import HeroPrints from "./components/HeroPrints";
 import EmptyState from "./components/EmptyState";
 import Stars from "./components/Stars";
 import {
@@ -47,28 +46,25 @@ export default async function HomePage({ params }) {
     )
     .filter((im) => im.src)
     .slice(0, 4);
-  const smallPrint = heroImages.length > 0 && (
-    <Image
-      src={heroImages[heroImages.length > 1 ? 1 : 0].src}
-      alt={heroImages[0].alt}
-      fill
-      sizes="160px"
-      className="object-cover"
-    />
-  );
+  const bentoImages = heroImages.slice(0, 3);
 
   return (
     <>
       {/* ── Hero: two prints in darkness ────────────────────── */}
       <section className="relative overflow-hidden bg-field text-white">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 pb-14 pt-6 sm:px-6 lg:min-h-[calc(100dvh-4rem)] lg:grid-cols-12 lg:items-stretch lg:gap-x-6 lg:pb-16 lg:pt-10">
+        <Image
+          src="/hero-leaves.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="scale-105 object-cover object-center opacity-40 blur-[2px] saturate-75"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[#143019]/75" aria-hidden="true" />
+        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 pb-14 pt-6 sm:px-6 lg:min-h-[calc(100dvh-4rem)] lg:grid-cols-12 lg:items-stretch lg:gap-x-6 lg:pb-16 lg:pt-10">
           {/* Content stack: headline, sentence, live stock strip, actions */}
           <div className="order-2 flex flex-col lg:order-1 lg:col-span-5 lg:justify-end">
-            {/* Second print: dimmed, sits above the headline on desktop */}
-            <div className="relative mb-8 hidden aspect-square w-40 overflow-hidden brightness-[0.7] lg:ml-[16%] lg:block">
-              {smallPrint || <div className="leaf-field h-full w-full" aria-hidden="true" />}
-            </div>
-
             <h1 className="text-[clamp(1.75rem,2.5vw,2.5rem)] font-medium leading-[1.15] tracking-tight text-white">
               {t.hero.heading}
             </h1>
@@ -139,22 +135,48 @@ export default async function HomePage({ params }) {
             </div>
           </div>
 
-          {/* The large print, above the midline; second print overlaps on phones */}
+          {/* Farmer-direct photo bento; real image count adapts to the published media */}
           <div className="order-1 lg:order-2 lg:col-span-4 lg:col-start-6 lg:mt-[8vh]">
-            <div className="relative">
-              <div className="relative ml-auto aspect-[4/5] w-[78%] overflow-hidden lg:w-full">
-                {heroImages.length > 0 ? (
-                  <HeroPrints images={heroImages} />
-                ) : (
-                  <div className="leaf-field absolute inset-0" aria-hidden="true" />
-                )}
-              </div>
-              <div
-                aria-hidden="true"
-                className="absolute left-0 top-[55%] aspect-square w-[34%] overflow-hidden brightness-[0.7] lg:hidden"
-              >
-                {smallPrint || <div className="leaf-field h-full w-full" />}
-              </div>
+            <div className="grid h-[330px] grid-cols-12 grid-rows-12 gap-2 sm:h-[390px] lg:h-[520px] lg:gap-3">
+              {bentoImages[0] ? (
+                <div className="relative col-span-7 row-span-8 overflow-hidden">
+                  <Image
+                    src={bentoImages[0].src}
+                    alt={bentoImages[0].alt}
+                    fill
+                    sizes="(max-width: 1023px) 58vw, 26vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="leaf-field col-span-7 row-span-8" aria-hidden="true" />
+              )}
+              {bentoImages[1] ? (
+                <div className="relative col-span-5 row-span-8 overflow-hidden">
+                  <Image
+                    src={bentoImages[1].src}
+                    alt={bentoImages[1].alt}
+                    fill
+                    sizes="(max-width: 1023px) 42vw, 20vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="leaf-field col-span-5 row-span-8" aria-hidden="true" />
+              )}
+              {bentoImages[2] ? (
+                <div className="relative col-span-12 row-span-4 overflow-hidden">
+                  <Image
+                    src={bentoImages[2].src}
+                    alt={bentoImages[2].alt}
+                    fill
+                    sizes="(max-width: 1023px) 100vw, 46vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="leaf-field col-span-12 row-span-4" aria-hidden="true" />
+              )}
             </div>
           </div>
         </div>
@@ -257,7 +279,7 @@ export default async function HomePage({ params }) {
                 >
                   <Stars rating={item.rating} />
                   <blockquote className="mt-3 flex-1 text-base leading-relaxed text-foreground">
-                    "{item.message}"
+                    &ldquo;{item.message}&rdquo;
                   </blockquote>
                   <figcaption className="mt-4 flex items-center justify-between gap-3 text-[13px] text-muted">
                     <span className="font-semibold text-brand-dark">{item.name}</span>
