@@ -34,7 +34,7 @@ const nextConfig = {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data: https://res.cloudinary.com https://maps.gstatic.com https://*.googleapis.com https://*.ggpht.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "connect-src 'self' https://*.googleapis.com https://google-analytics.com https://*.google-analytics.com",
+      "connect-src 'self' https://api.cloudinary.com https://*.cloudinary.com https://*.googleapis.com https://google-analytics.com https://*.google-analytics.com",
       "frame-src 'self' https://www.google.com https://maps.google.com",
       "frame-ancestors 'self'",
       "base-uri 'self'",
