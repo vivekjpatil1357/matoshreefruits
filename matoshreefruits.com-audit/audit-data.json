@@ -1,7 +1,7 @@
 {
   "summary": {
     "health_score": 62,
-    "business_type": "Hybrid B2B Wholesale Mandi (Banana)",
+    "business_type": "B2B Wholesale Farmer-Direct Banana Trader",
     "top_findings": [
       "F1: Sitemap and robots.txt point to non-www, causing 308 redirect loops for all index entries.",
       "F2: Zero <link rel="canonical"> tags across all 15 locale pages.",

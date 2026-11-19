@@ -69,7 +69,7 @@ curl -i -X POST http://localhost:3000/api/admin/stock \
   -H "Content-Type: application/json" \
   -H "Origin: http://localhost:3000" \
   -H "Cookie: mf_session=PASTE_SIGNED_TOKEN_HERE" \
-  -d '{"variety":"Robusta","quantity":120,"unit":"crate","quality":"grade-a","location":"Sarola mandi","available":true}'
+  -d '{"variety":"Robusta","quantity":120,"unit":"crate","quality":"grade-a","location":"Sarola farm","available":true}'
 
 # Expiry cron (local run):
 curl -H "Authorization: Bearer $CRON_SECRET" http://localhost:3000/api/cron/expire-posts

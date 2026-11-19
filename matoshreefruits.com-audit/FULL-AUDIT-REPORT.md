@@ -3,7 +3,7 @@
 **Target Domain:** `https://www.matoshreefruits.com`  
 **Audit Date:** 2026-11-11  
 **Tech Stack:** Next.js 16.4.2 (App Router, Server Components), Vercel Hosting  
-**Business Type:** Hybrid B2B Agricultural Mandi Wholesaler (Banana, Sarola, Burhanpur, MP)  
+**Business Type:** B2B Farmer-Direct Banana Wholesaler (Banana, Sarola, Burhanpur, MP)  
 **Overall SEO Health Score:** **62 / 100**
 
 ---
@@ -54,7 +54,7 @@ Detailed specialist findings are stored in `matoshreefruits.com-audit/findings/`
 - **Agentic Browsing (`agentic.md`):** Accessibility tree partial pass, color-contrast failure on footer links.
 - **Local SEO (`local.md`):** NAP consistency verified, Google Business Profile claim needed at Sarola, Burhanpur.
 - **Google Search Console (`google-data.md`):** GSC inspection warnings due to redirect loops and hreflang issues.
-- **Search Experience (SXO) (`sxo.md`):** Strong trader intent alignment via WhatsApp CTAs; needs trust badges and mandi rate table.
+- **Search Experience (SXO) (`sxo.md`):** Strong trader intent alignment via WhatsApp CTAs; needs trust badges and direct-farm availability updates.
 
 ---
 

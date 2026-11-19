@@ -9,7 +9,7 @@
 > - **`Review` schema** — *Still open* (repo-side, no JSON-LD).
 
 ## Executive Summary
-- **Business Type:** Hybrid (Physical mandi presence at Sarola, Burhanpur + B2B wholesale focus)
+- **Business Type:** Farmer-direct B2B wholesale supplier in Sarola, Burhanpur
 - **Industry:** Wholesale Agriculture (Banana)
 - **Local SEO Score:** 15/100
 - **Primary Issue:** Zero structured data, no active Google Business Profile (GBP) integration, no local citations.

@@ -7,7 +7,7 @@ Direction: `uneven-photographs` (seed 1304246111), palette + type kept from bran
 - Product: banana lots (केळी/केले) — bunches, crates, grades Premium/A/B.
 - Place: Shreekrishna toll kata, Sarola, Burhanpur (MP) — toll-plaza roadside, market yard trade.
 - Constraint that defines it: **no public price, ever** — the rate exists only in the conversation.
-- Ritual: bought at the mandi daily (early morning), sorted, loaded, dispatched — 24 hours.
+- Ritual: bought directly from farmers' farms daily (early morning), sorted, loaded, dispatched — 24 hours.
 - Numbers: grades (Premium/Grade A/B), quantity per crate/quintal/truck, 7-day temporary posts.
 - Artefacts of its world: weighbridge slip, bilty (transport receipt), crate stencil, the trader's bahi.
 - Audience: bulk traders on phones, many low-tech, mr/hi first.
@@ -20,7 +20,7 @@ Direction: `uneven-photographs` (seed 1304246111), palette + type kept from bran
    Proof: the newest admin-uploaded lot photos, at uneven sizes like prints.
    Section: latest arrivals (staggered pairs — Phase 3).
 3. Claim: The trade is simple and direct.
-   Proof: three steps — bought at the mandi, sorted & graded, dispatched in bulk.
+   Proof: three steps — bought directly from farms, sorted & graded, dispatched in bulk.
    Section: how it works (drag row — Phase 3).
 4. Claim: No public pricing; ask and get a straight answer.
    Proof: one rates-on-request note (was 4×).
@@ -44,7 +44,7 @@ fallback: first photo static / branded leaf-pattern CSS surface. No JS required.
 | key | en | mr | hi |
 |---|---|---|---|
 | hero.heading | Bananas straight from farmers | शेतकऱ्यांकडून थेट केळी | किसानों से सीधे केले |
-| hero.sub | Bought at the mandi every day, supplied in bulk to traders. | रोज मंडीतून खरेदी, व्यापाऱ्यांना थोक पुरवठा. | रोज़ मंडी से खरीदी, व्यापारियों को थोक सप्लाई. |
+| hero.sub | Bought directly from farmers' farms every day, supplied in bulk to traders. | रोज शेतकऱ्यांच्या शेतातून थेट खरेदी, व्यापाऱ्यांना थोक पुरवठा. | रोज़ किसानों के खेत से थेट खरीदी, व्यापारियों को थोक सप्लाई. |
 | hero.stockTitle | Available today | आज उपलब्ध माल | आज उपलब्ध माल |
 | hero.stockEmpty | No lots listed yet — ask us on WhatsApp. | अजून माल सूचीबद्ध नाही — व्हॉट्सअ‍ॅपवर विचारा. | अभी कोई माल नहीं — व्हाट्सएप पर पूछें। |
 | common.call | Call now | आत्ता कॉल करा | अभी कॉल करें |

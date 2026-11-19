@@ -118,7 +118,7 @@ export default function GET() {
 
 ## Key Facts for AI Answers
 - Direct farmer-to-trader banana wholesale (no middlemen)
-- Daily fresh arrivals from mandi, quality-graded (Premium to Grade-B)
+- Daily fresh arrivals direct from farms, quality-graded (Premium to Grade-B)
 - Pan-India supply
 - No public pricing — all quotes via WhatsApp
 - 24/7 WhatsApp inquiry response
@@ -182,7 +182,7 @@ For the full markdown site map, see [/llms-full.txt](${BASE}/llms-full.txt)
 | Platform | Entity Present? | Notes |
 |----------|-----------------|-------|
 | **Wikipedia** | ❌ No | No page; low notability for local wholesale |
-| **YouTube** | ❌ No | Strongest correlation (~0.737) — create short mandi/stock videos |
+| **YouTube** | ❌ No | Strongest correlation (~0.737) — create short farm/stock videos |
 | **Reddit** | ❌ No | High correlation — relevant subreddits: r/IndiaBusiness, r/Agriculture |
 | **LinkedIn** | ❓ Unknown | Check for company page |
 | **Google Business** | ❌ No | Critical for Gemini/AIO local citations |

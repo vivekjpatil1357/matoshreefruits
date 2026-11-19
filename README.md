@@ -102,7 +102,7 @@ vercel.json            Daily cron for /api/cron/expire-posts
 ## About the business
 
 One website, one admin. Matoshree Fruits is a small *vyapari*: it buys banana
-lots **directly from farmers** at the mandi and supplies them onward in bulk to
+lots **directly from farmers' farms** and supplies them onward in bulk to
 bigger traders and wholesalers (B2B). The admin publishes photos/videos of the
 lots; buyers enquire on WhatsApp.
 

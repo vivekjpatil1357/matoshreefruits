@@ -107,7 +107,7 @@ const STOCK = [
     quantity: 90,
     unit: "quintal",
     quality: "mixed",
-    location: "Ranchi Mandi",
+    location: "Ranchi farm",
     available: false,
     notes: "Sold out — next lot arriving this week.",
     notesMr: "माल संपला — पुढचा माल या आठवड्यात येणार.",
@@ -143,9 +143,9 @@ const STOCK = [
 
 const POSTS = [
   {
-    title: "Daily fresh arrivals at the mandi",
-    titleMr: "मंडीत रोज नवीन आवक",
-    titleHi: "मंडी में रोज़ नई आवक",
+    title: "Daily fresh arrivals direct from farms",
+    titleMr: "शेतांतून रोज नवीन थेट आवक",
+    titleHi: "खेतों से रोज़ ताज़ी सीधी आवक",
     body: "Fresh lots are landing every morning. Stock is graded, sorted and listed with quantity and location — ask us on WhatsApp for today's rate.",
     bodyMr: "प्रत्येक सकाळी नवीन माल येतो. माल वर्गीकृत व निवडलेला असून प्रमाण आणि स्थानासह यादीत आहे — आजच्या दरासाठी व्हॉट्सअ‍ॅपवर विचार करा.",
     bodyHi: "हर सुबह नया माल आता है। माल ग्रेडेड और छाँटा हुआ है तथा मात्रा और स्थान के साथ सूचीबद्ध है — आज के दाम के लिए व्हाट्सएप पर पूछें।",
@@ -167,8 +167,8 @@ const POSTS = [
     titleMr: "थेट पुरवठा, दलाल नाही",
     titleHi: "सीधी सप्लाई, बिचौलिया नहीं",
     body: "Orders are packed at the market and dispatched the same day. Enquire on WhatsApp for today's availability.",
-    bodyMr: "ऑर्डर मंडीत पॅक करून त्याच दिवशी पुरवठा केला जातो. आजच्या उपलब्धतेसाठी व्हॉट्सअ‍ॅपवर चौकशी करा.",
-    bodyHi: "ऑर्डर मंडी में पैक होकर उसी दिन सप्लाई होते हैं। आज की उपलब्धता के लिए व्हाट्सएप पर पूछताछ करें।",
+    bodyMr: "ऑर्डर शेतात पॅक करून त्याच दिवशी पुरवठा केला जातो. आजच्या उपलब्धतेसाठी व्हॉट्सअ‍ॅपवर चौकशी करा.",
+    bodyHi: "ऑर्डर खेत में पैक होकर उसी दिन सप्लाई होता है। आज की उपलब्धता के लिए व्हाट्सएप पर पूछताछ करें।",
     type: "permanent",
     status: "published",
   },

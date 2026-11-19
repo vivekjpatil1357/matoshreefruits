@@ -9,7 +9,7 @@
 -- stock --
 {"heading": "उपलब्ध स्टॉक", "sub": "अभी उपलब्ध केलों की मात्रा, क्वालिटी और स्थान।"}
 -- gallery --
-{"heading": "फ़ोटो और वीडियो गैलरी", "sub": "ताज़ी आवक, मंडी और पैकिंग के असली फ़ोटो।"}
+{"heading": "फ़ोटो और वीडियो गैलरी", "sub": "ताज़ी आवक, किसानों के खेत और पैकिंग के असली फ़ोटो।"}
 -- contact --
 {"heading": "संपर्क करें", "sub": "फ़ोन, पता और व्यवसाय की जानकारी।"}
 -- feedback --
@@ -25,7 +25,7 @@
 -- stock --
 {"heading": "उपलब्ध माल", "sub": "सध्या उपलब्ध केळ्यांची प्रमाण, गुणवत्ता आणि स्थान."}
 -- gallery --
-{"heading": "फोटो व व्हिडिओ गॅलरी", "sub": "ताजी आवक, मंडी आणि पॅकिंगचे वास्तव फोटो."}
+{"heading": "फोटो व व्हिडिओ गॅलरी", "sub": "ताजी आवक, शेत आणि पॅकिंगचे वास्तव फोटो."}
 -- contact --
 {"heading": "संपर्क", "sub": "फोन, पत्ता आणि व्यवसायाची माहिती."}
 -- feedback --
@@ -41,7 +41,7 @@
 -- stock --
 {"heading": "Available stock", "sub": "Current banana lots with quantity, quality and location."}
 -- gallery --
-{"heading": "Photo & video gallery", "sub": "Real photos of fresh arrivals, the mandi and packing."}
+{"heading": "Photo & video gallery", "sub": "Real photos of fresh arrivals, the farm and packing."}
 -- contact --
 {"heading": "Contact us", "sub": "Phone, address and business details."}
 -- feedback --
