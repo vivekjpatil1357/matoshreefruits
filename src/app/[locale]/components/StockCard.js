@@ -24,10 +24,10 @@ export default function StockCard({ item, locale, t, compact = false }) {
   const available = item.available !== false;
 
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-line bg-surface p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="flex h-full flex-col border border-line bg-surface p-5">
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-accent-soft text-brand-dark">
+          <span className="grid h-9 w-9 shrink-0 place-items-center bg-accent-soft text-brand-dark">
             <BoxIcon className="h-5 w-5" />
           </span>
           <h3 className="text-base font-bold leading-tight text-brand-dark sm:text-lg">
@@ -35,7 +35,7 @@ export default function StockCard({ item, locale, t, compact = false }) {
           </h3>
         </div>
         <span
-          className={`inline-flex shrink-0 items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold ${
+          className={`inline-flex shrink-0 items-center gap-1.5 px-2.5 py-1 text-[13px] font-semibold ${
             available ? "bg-brand-soft text-brand-dark" : "bg-muted/10 text-muted"
           }`}
         >
@@ -47,22 +47,22 @@ export default function StockCard({ item, locale, t, compact = false }) {
       </div>
 
       <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-        <div className="rounded-xl bg-background p-3">
-          <dt className="text-xs uppercase tracking-wide text-muted">
+        <div className="bg-background p-3">
+          <dt className="text-[13px] text-muted">
             {t.stock.fields.quantity}
           </dt>
           <dd className="mt-1 font-semibold text-foreground">
             {item.quantity} <span className="font-normal text-muted">{unit}</span>
           </dd>
         </div>
-        <div className="rounded-xl bg-background p-3">
-          <dt className="text-xs uppercase tracking-wide text-muted">
+        <div className="bg-background p-3">
+          <dt className="text-[13px] text-muted">
             {t.stock.fields.quality}
           </dt>
           <dd className="mt-1 font-semibold text-foreground">{grade}</dd>
         </div>
-        <div className="col-span-2 rounded-xl bg-background p-3">
-          <dt className="text-xs uppercase tracking-wide text-muted">
+        <div className="col-span-2 bg-background p-3">
+          <dt className="text-[13px] text-muted">
             {t.stock.fields.location}
           </dt>
           <dd className="mt-1 font-semibold text-foreground">{item.location}</dd>
@@ -70,11 +70,11 @@ export default function StockCard({ item, locale, t, compact = false }) {
       </dl>
 
       {notes && !compact && (
-        <p className="mt-3 text-sm italic leading-relaxed text-muted">{notes}</p>
+        <p className="mt-3 text-base italic leading-relaxed text-muted">{notes}</p>
       )}
 
       <div className="mt-auto flex flex-col gap-3 pt-4">
-        <p className="text-[11px] text-muted">
+        <p className="text-[13px] text-muted">
           {t.stock.fields.updated}:{" "}
           {formatDate(item.updatedAt || item.createdAt, locale)}
         </p>

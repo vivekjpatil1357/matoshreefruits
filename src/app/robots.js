@@ -4,6 +4,17 @@ const BASE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export default function robots() {
   return {
     rules: [
+      // Training crawlers — disallow (opt-out of model training)
+      { userAgent: "GPTBot", disallow: "/" },
+      { userAgent: "ClaudeBot", disallow: "/" },
+      { userAgent: "CCBot", disallow: "/" },
+      { userAgent: "Google-Extended", disallow: "/" },
+      { userAgent: "Applebot-Extended", disallow: "/" },
+      // Search crawlers — allow (enable AI search indexing)
+      { userAgent: "OAI-SearchBot", allow: "/" },
+      { userAgent: "Claude-SearchBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      // Default group for all other crawlers
       {
         userAgent: "*",
         allow: "/",

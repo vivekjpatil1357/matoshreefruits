@@ -19,13 +19,12 @@ export default async function FeedbackPage({ params }) {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeading
-        eyebrow={t.meta.tagline}
         title={t.feedback.heading}
         subtitle={t.feedback.sub}
       />
 
       <div className="grid gap-8 lg:grid-cols-2">
-        <div className="rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-8">
+        <div className="border border-line bg-surface p-6 sm:p-8">
           <FeedbackForm locale={locale} t={t} />
         </div>
 
@@ -35,7 +34,7 @@ export default async function FeedbackPage({ params }) {
           </h2>
 
           {items.length === 0 ? (
-            <p className="mt-4 rounded-2xl border border-dashed border-line bg-surface/60 px-6 py-10 text-center text-sm text-muted">
+            <p className="mt-4 border border-dashed border-line bg-surface/60 px-6 py-10 text-center text-base text-muted">
               {t.feedback.testimonials.empty}
             </p>
           ) : (
@@ -43,13 +42,13 @@ export default async function FeedbackPage({ params }) {
               {items.map((item) => (
                 <li
                   key={item._id}
-                  className="rounded-2xl border border-line bg-surface p-5 shadow-sm"
+                  className="border border-line bg-surface p-5"
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <span className="text-sm font-semibold text-brand-dark">
+                    <span className="text-base font-semibold text-brand-dark">
                       {item.name}
                     </span>
-                    <span className="text-xs text-muted">
+                    <span className="text-[13px] text-muted">
                       {formatDate(item.createdAt, locale, {
                         day: "numeric",
                         month: "short",
@@ -62,7 +61,7 @@ export default async function FeedbackPage({ params }) {
                       <Stars rating={item.rating} />
                     </div>
                   ) : null}
-                  <p className="mt-3 text-sm leading-relaxed text-foreground">
+                  <p className="mt-3 text-base leading-relaxed text-foreground">
                     {item.message}
                   </p>
                 </li>
@@ -70,7 +69,7 @@ export default async function FeedbackPage({ params }) {
             </ul>
           )}
 
-          <p className="mt-5 rounded-xl bg-accent-soft px-4 py-3 text-xs font-medium text-brand-dark">
+          <p className="mt-5 bg-accent-soft px-4 py-3 text-[13px] font-medium text-brand-dark">
             {t.feedback.form.successNote}
           </p>
         </div>

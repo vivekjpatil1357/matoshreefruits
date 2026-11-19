@@ -32,7 +32,7 @@ export default function LanguageSwitcher({ locale, label = "Language" }) {
         aria-label={label}
         value={locale}
         onChange={(e) => switchTo(e.target.value)}
-        className="h-9 appearance-none rounded-full border border-line bg-background py-1 pl-8 pr-8 text-xs font-semibold text-foreground transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
+        className="h-11 appearance-none border border-line bg-background py-1 pl-8 pr-8 text-[13px] font-semibold text-foreground transition focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
       >
         {LOCALES.map((l) => (
           <option key={l} value={l} lang={l}>

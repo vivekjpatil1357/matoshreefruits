@@ -1,6 +1,6 @@
 {
   "meta": {
-    "siteName": "Matoshree Fruits",
+    "siteName": "Matoshree Fruits — Wholesale Banana Mandi & Farmer Direct Trader | Burhanpur",
     "tagline": "Fresh arrivals. Trusted quality. Direct connection.",
     "description": "Matoshree Fruits — farmer-direct wholesale banana stock, availability and photo/video updates."
   },
@@ -27,59 +27,62 @@
     "updated": "Updated",
     "close": "Close",
     "whatsappEnquiry": "Enquire on WhatsApp",
+    "call": "Call now",
     "pageNotFound": "Page not found",
     "backHome": "Go home",
     "noPricing": "Rates are shared on request — no public pricing.",
     "skipToContent": "Skip to content",
     "skeleton": "Loading content…"
   },
+  "bar": {
+    "label": "Quick actions",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "stock": "Stock"
+  },
   "hero": {
-    "eyebrow": "Farmer-direct wholesale banana trading",
-    "heading": "Banana lots bought directly from farmers — supplied straight to big traders.",
-    "sub": "We purchase at the mandi straight from farmers and forward in bulk: live stock, honest quality grades and same-day WhatsApp replies for traders who move volume.",
-    "primaryCta": "See live stock",
-    "secondaryCta": "Contact us",
-    "chips": ["Daily fresh arrivals", "Quality graded & sorted", "Pan-India dispatch"]
+    "heading": "Bananas straight from farmers",
+    "sub": "Bought at the farm every day, supplied in bulk to traders.",
+    "secondaryCta": "Contact us"
   },
   "home": {
     "freshArrivals": {
-      "title": "Fresh from Matoshree",
-      "sub": "New photos, videos and market updates as they land.",
-      "empty": "No new updates right now — check back soon.",
-      "cta": "See the full gallery"
+      "title": "Today's lots",
+      "sub": "Photos we took this morning.",
+      "cta": "See all photos"
     },
     "stockPreview": {
       "title": "Stock available now",
-      "sub": "Quantity, quality and location — straight from the mandi.",
+      "sub": "Quantity, quality and location — straight from the farm.",
       "empty": "No stock listed right now. Ask us on WhatsApp.",
       "cta": "See all stock"
     },
-    "whyUs": {
-      "title": "Why traders and buyers choose us",
+    "howItWorks": {
+      "title": "How it works",
+      "sub": "Three steps, no middleman.",
       "items": [
         {
-          "title": "Fresh every day",
-          "text": "Lots are bought directly from farmers and listed daily with quantity, quality and location."
+          "title": "Bought at the farm",
+          "text": "Every morning, straight from farmers."
         },
         {
-          "title": "Honest quality grades",
-          "text": "From premium to grade-B — the grade is stated before you buy."
+          "title": "Sorted and graded",
+          "text": "Premium, A or B — grade told before you buy."
         },
         {
-          "title": "Direct connection",
-          "text": "One tap to WhatsApp for a real quote. No call-back waiting."
+          "title": "Loaded and dispatched",
+          "text": "Bulk loading and same-day dispatch."
         }
       ]
     },
     "testimonials": {
-      "title": "What customers say",
-      "sub": "Approved feedback from buyers and traders.",
-      "empty": "No feedback to show yet."
+      "title": "What buyers say",
+      "sub": "Traders who buy from us regularly."
     },
     "cta": {
-      "heading": "Need a quote?",
-      "text": "Ask for quantity, quality and rates directly on WhatsApp.",
-      "button": "Enquire on WhatsApp"
+      "heading": "Ask for today's rate",
+      "text": "Prices are not listed here — send quantity and grade on WhatsApp.",
+      "button": "Get the rate on WhatsApp"
     }
   },
   "stock": {
@@ -114,7 +117,7 @@
   },
   "gallery": {
     "heading": "Photo & video gallery",
-    "sub": "Real photos of fresh arrivals, the mandi and packing.",
+    "sub": "Real photos of fresh arrivals, the farm and packing.",
     "empty": "No media in the gallery yet.",
     "all": "All",
     "photos": "Photos",
@@ -134,6 +137,7 @@
     "hours": "Business hours",
     "email": "Email",
     "business": "Business",
+    "map": "Our Location",
     "note": "Pricing is never public — ask for rates on WhatsApp.",
     "unavailable": "Coming soon"
   },

@@ -179,7 +179,7 @@ const permanentId = permanent.data?.post?._id;
 }
 
 // ── 5. backdate expiresAt → post is now "expired" ──────────────────────────
-await mongoose.connect("mongodb://127.0.0.1:27017/matoshreefruits");
+await mongoose.connect(env.MONGODB_URI || "mongodb://127.0.0.1:27017/matoshreefruits");
 const Post = mongoose.model("Post", new mongoose.Schema({}, { strict: false }), "posts");
 await Post.updateOne(
   { _id: new mongoose.Types.ObjectId(expiringId) },

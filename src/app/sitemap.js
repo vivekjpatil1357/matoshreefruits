@@ -1,9 +1,9 @@
-import { LOCALES } from "@/lib/i18n";
+import { LOCALES, DEFAULT_LOCALE } from "@/lib/i18n";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const PAGES = ["", "stock", "gallery", "contact", "feedback"];
 
-/** One sitemap entry per page × locale, with hreflang alternates. */
+/** One sitemap entry per page × locale, with hreflang alternates including x-default. */
 export default function sitemap() {
   const entries = [];
 
@@ -14,9 +14,12 @@ export default function sitemap() {
       changeFrequency: path === "" ? "daily" : "weekly",
       priority: path === "" ? 1 : 0.7,
       alternates: {
-        languages: Object.fromEntries(
-          LOCALES.map((locale) => [locale, `${BASE}/${locale}${suffix}`])
-        ),
+        languages: {
+          ...Object.fromEntries(
+            LOCALES.map((locale) => [locale, `${BASE}/${locale}${suffix}`])
+          ),
+          "x-default": `${BASE}/${DEFAULT_LOCALE}${suffix}`,
+        },
       },
     });
   }

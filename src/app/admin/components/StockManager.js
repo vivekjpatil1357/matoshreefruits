@@ -41,9 +41,56 @@ export default function StockManager({ initialItems }) {
   const [form, setForm] = useState(EMPTY);
   const [message, setMessage] = useState(null);
   const [busy, setBusy] = useState(false);
+  const [translating, setTranslating] = useState(false);
 
   function set(key, value) {
     setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  const hasSource = Boolean(form.variety.trim() || form.notes.trim());
+  const hasTarget = Boolean(
+    form.varietyMr || form.varietyHi || form.notesMr || form.notesHi
+  );
+
+  /** Fill the Marathi/Hindi variety + notes from the English values. */
+  async function autoTranslate() {
+    if (!hasSource) return;
+    if (
+      hasTarget &&
+      !window.confirm(
+        "Replace the existing Marathi/Hindi text with fresh translations?"
+      )
+    ) {
+      return;
+    }
+    setTranslating(true);
+    setMessage(null);
+    try {
+      const res = await fetch("/api/admin/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fields: { variety: form.variety, notes: form.notes },
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setMessage({
+          kind: "error",
+          text: data.message || `Translation failed (${res.status})`,
+        });
+        return;
+      }
+      setForm((prev) => ({ ...prev, ...data.translated }));
+      setMessage({
+        kind: "ok",
+        text: "Translated to Marathi and Hindi — review, then save.",
+      });
+    } catch {
+      setMessage({ kind: "error", text: "Network error — translation failed." });
+    } finally {
+      setTranslating(false);
+    }
   }
 
   function startCreate() {
@@ -181,9 +228,22 @@ export default function StockManager({ initialItems }) {
       {/* Inline form */}
       {editing && (
         <form onSubmit={save} className={`${card} ${cardPad} space-y-4`}>
-          <h2 className="font-bold text-brand-dark">
-            {editing === "new" ? "Add stock lot" : "Edit stock lot"}
-          </h2>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <h2 className="font-bold text-brand-dark">
+              {editing === "new" ? "Add stock lot" : "Edit stock lot"}
+            </h2>
+            <button
+              type="button"
+              onClick={autoTranslate}
+              disabled={translating || !hasSource}
+              className={btnGhost}
+              title="Translate the English variety and notes into Marathi and Hindi"
+            >
+              {translating
+                ? "Translating…"
+                : "Auto-translate to Marathi & Hindi"}
+            </button>
+          </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
             <div>

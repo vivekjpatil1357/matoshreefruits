@@ -16,7 +16,9 @@ import {
 
 /**
  * Create/edit form for a post: trilingual title/body, Temporary (7-day) vs
- * Permanent, draft/published/unpublished, and the media uploader.
+ * Permanent, draft/published/unpublished, and the media uploader. An
+ * "Auto-translate" button fills the Marathi/Hindi fields from the English
+ * text via POST /api/admin/translate.
  *
  * Saving goes through the protected /api/admin/posts routes, which re-check
  * the session, validate every field and invalidate the `posts` cache tag so
@@ -40,9 +42,60 @@ export default function PostEditor({ post }) {
   const [message, setMessage] = useState(null); // { kind, text }
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [translating, setTranslating] = useState(false);
+  const [translateNote, setTranslateNote] = useState(null); // { kind, text }
 
   function set(key, value) {
     setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  const hasSource = Boolean(form.title.trim() || form.body.trim());
+  const hasTarget = Boolean(
+    form.titleMr || form.titleHi || form.bodyMr || form.bodyHi
+  );
+
+  /** Fill the Marathi/Hindi fields from the English title + body. */
+  async function autoTranslate() {
+    if (!hasSource) return;
+    if (
+      hasTarget &&
+      !window.confirm(
+        "Replace the existing Marathi/Hindi text with fresh translations?"
+      )
+    ) {
+      return;
+    }
+    setTranslating(true);
+    setTranslateNote(null);
+    try {
+      const res = await fetch("/api/admin/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fields: { title: form.title, body: form.body },
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setTranslateNote({
+          kind: "error",
+          text: data.message || `Translation failed (${res.status})`,
+        });
+        return;
+      }
+      setForm((prev) => ({ ...prev, ...data.translated }));
+      setTranslateNote({
+        kind: "ok",
+        text: "Translated to Marathi and Hindi — review below, then save.",
+      });
+    } catch {
+      setTranslateNote({
+        kind: "error",
+        text: "Network error — translation failed.",
+      });
+    } finally {
+      setTranslating(false);
+    }
   }
 
   async function save() {
@@ -156,6 +209,33 @@ export default function PostEditor({ post }) {
 
       {/* Titles */}
       <section className={`${card} ${cardPad} space-y-4`}>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <span className="text-[11px] font-semibold uppercase tracking-wide text-muted">
+            Text
+          </span>
+          <button
+            type="button"
+            onClick={autoTranslate}
+            disabled={translating || !hasSource}
+            className={btnGhost}
+            title="Translate the English title and body into Marathi and Hindi"
+          >
+            {translating
+              ? "Translating…"
+              : "Auto-translate to Marathi & Hindi"}
+          </button>
+        </div>
+        {translateNote && (
+          <p
+            className={`rounded-lg px-3 py-2 text-sm font-medium ${
+              translateNote.kind === "ok"
+                ? "bg-brand-soft text-brand-dark"
+                : "bg-red-50 text-red-700"
+            }`}
+          >
+            {translateNote.text}
+          </p>
+        )}
         <div>
           <label className={label} htmlFor="title">
             Title (English)

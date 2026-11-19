@@ -35,15 +35,15 @@ export default function StockBrowser({ items, locale, t }) {
               type="button"
               onClick={() => setOnlyAvailable(f.key)}
               aria-pressed={active}
-              className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`inline-flex items-center gap-2 border px-4 py-2.5 text-sm font-medium transition ${
                 active
-                  ? "border-brand bg-brand text-white shadow-sm"
+                  ? "border-brand bg-brand text-white"
                   : "border-line bg-surface text-muted hover:border-brand/40 hover:text-brand-dark"
               }`}
             >
               {f.label}
               <span
-                className={`rounded-full px-1.5 text-xs ${
+                className={`px-1.5 text-[13px] ${
                   active ? "bg-white/20 text-white" : "bg-background text-muted"
                 }`}
               >

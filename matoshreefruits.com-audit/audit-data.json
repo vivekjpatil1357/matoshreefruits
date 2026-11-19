@@ -1,0 +1,164 @@
+{
+  "summary": {
+    "health_score": 62,
+    "business_type": "Hybrid B2B Wholesale Mandi (Banana)",
+    "top_findings": [
+      "F1: Sitemap and robots.txt point to non-www, causing 308 redirect loops for all index entries.",
+      "F2: Zero <link rel="canonical"> tags across all 15 locale pages.",
+      "F3: Invalid relative hreflang links and missing x-default in layout.",
+      "F4: Zero structured data (LocalBusiness, Organization, Product schema missing).",
+      "F5: Missing Open Graph and Twitter card meta tags."
+    ],
+    "quick_wins": [
+      "Update NEXT_PUBLIC_SITE_URL in .env.live to https://www.matoshreefruits.com",
+      "Add metadataBase to next.config.mjs",
+      "Create src/app/llms.txt/route.js for AI search readiness",
+      "Add security headers in next.config.mjs"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "score": 40,
+      "what_works": [
+        "Robots.txt is reachable and valid",
+        "Server-rendered HTML (no JS dependency for crawlability)",
+        "HTTPS enforced with HSTS"
+      ],
+      "findings": [
+        {
+          "title": "Sitemap & Robots Host Mismatch",
+          "severity": "Critical",
+          "description": "Sitemap and robots.txt reference non-www URL while live site canonical is www (308 redirect loop).",
+          "recommendation": "Update NEXT_PUBLIC_SITE_URL in .env.live and Vercel to https://www.matoshreefruits.com"
+        },
+        {
+          "title": "Missing Canonical Tags",
+          "severity": "Critical",
+          "description": "Zero canonical tags found across all 15 rendered locale pages.",
+          "recommendation": "Configure metadataBase and canonical links in src/app/[locale]/layout.js"
+        },
+        {
+          "title": "Invalid Hreflang Alternates",
+          "severity": "High",
+          "description": "Hreflang links use relative paths (/hi, /mr) without metadataBase or x-default.",
+          "recommendation": "Add absolute alternates and x-default in layout.js"
+        },
+        {
+          "title": "Missing Security Headers",
+          "severity": "High",
+          "description": "Missing X-Content-Type-Options, Referrer-Policy, X-Frame-Options, and CSP.",
+          "recommendation": "Configure headers() in next.config.mjs"
+        }
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "score": 91,
+      "what_works": [
+        "Authentic B2B agricultural wholesale copy",
+        "Multi-lingual support (Hindi, Marathi, English) with natural phrasing",
+        "Clear WhatsApp CTA and farmer-direct value proposition"
+      ],
+      "findings": [
+        {
+          "title": "Brand-Only Homepage Title",
+          "severity": "Medium",
+          "description": "Homepage title is brand-only ('मातोश्री फ्रूट्स'), missing key trade modifiers.",
+          "recommendation": "Update locale JSON title templates to include wholesale keywords."
+        }
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "score": 0,
+      "what_works": [],
+      "findings": [
+        {
+          "title": "Zero Structured Data",
+          "severity": "Critical",
+          "description": "No LocalBusiness, Organization, Product, or BreadcrumbList schema on any page.",
+          "recommendation": "Inject JSON-LD graph in root layout and page components per findings/schema.md."
+        }
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "score": 90,
+      "what_works": [
+        "Mobile performance score 99/100",
+        "Fast LCP (1.7s mobile) and low TBT (50ms)",
+        "Lightweight page payload (199 KiB)"
+      ],
+      "findings": [
+        {
+          "title": "Desktop CLS Footer Shift",
+          "severity": "Medium",
+          "description": "Desktop CLS 0.429 caused by unreserved footer height.",
+          "recommendation": "Add min-height to footer element in src/app/[locale]/components/Footer.js"
+        }
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "score": 55,
+      "what_works": [
+        "All major AI search and training crawlers allowed in robots.txt",
+        "Clear NAP and pricing policy in SSR text"
+      ],
+      "findings": [
+        {
+          "title": "Missing llms.txt and Markdown Delivery",
+          "severity": "High",
+          "description": "/llms.txt returns 404 and no markdown content negotiation exists.",
+          "recommendation": "Add src/app/llms.txt/route.js route handler."
+        }
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Week 1",
+        "items": [
+          "Update NEXT_PUBLIC_SITE_URL to https://www.matoshreefruits.com in .env.live and Vercel",
+          "Add metadataBase and canonical tags in layout.js",
+          "Fix hreflang absolute URLs and add x-default",
+          "Inject LocalBusiness and Organization JSON-LD schema"
+        ]
+      },
+      {
+        "name": "Phase 2: High-Impact Improvements",
+        "timeframe": "Weeks 2-3",
+        "items": [
+          "Add security headers in next.config.mjs",
+          "Create llms.txt and llms-full.txt routes",
+          "Fix desktop footer CLS in Footer.js",
+          "Update homepage title with wholesale keyword modifiers"
+        ]
+      },
+      {
+        "name": "Phase 3: Content & Authority",
+        "timeframe": "Month 2",
+        "items": [
+          "Claim and optimize Google Business Profile at Sarola, Burhanpur",
+          "Register on Tier 1 Indian B2B directories (IndiaMART, Justdial)",
+          "Add FAQ schema blocks for wholesale buyers"
+        ]
+      },
+      {
+        "name": "Phase 4: Monitoring & Iteration",
+        "timeframe": "Ongoing",
+        "items": [
+          "Monitor GSC indexation and warning clearance",
+          "Track organic search impressions for banana wholesale terms"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

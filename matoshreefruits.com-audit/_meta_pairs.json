@@ -1,0 +1,17 @@
+[
+  {"url": "/hi", "title": "मातोश्री फ्रूट्स", "description": "मातोश्री फ्रूट्स — किसानों से सीधे मिलने वाले केलों की थोक आवक, उपलब्धता और फ़ोटो/वीडियो अपडेट."},
+  {"url": "/mr", "title": "मातोश्री फ्रूट्स", "description": "मातोश्री फ्रूट्स — शेतकऱ्यांकडून थेट मिळणारी केळ्यांची थोक आवक, उपलब्धता आणि फोटो/व्हिडिओ अपडेट."},
+  {"url": "/en", "title": "Matoshree Fruits", "description": "Matoshree Fruits — farmer-direct wholesale banana stock, availability and photo/video updates."},
+  {"url": "/hi/stock", "title": "उपलब्ध स्टॉक | मातोश्री फ्रूट्स", "description": "अभी उपलब्ध केलों की मात्रा, क्वालिटी और स्थान।"},
+  {"url": "/mr/stock", "title": "उपलब्ध माल | मातोश्री फ्रूट्स", "description": "सध्या उपलब्ध केळ्यांची प्रमाण, गुणवत्ता आणि स्थान."},
+  {"url": "/en/stock", "title": "Available stock | Matoshree Fruits", "description": "Current banana lots with quantity, quality and location."},
+  {"url": "/hi/gallery", "title": "फ़ोटो और वीडियो गैलरी | मातोश्री फ्रूट्स", "description": "ताज़ी आवक, मंडी और पैकिंग के असली फ़ोटो।"},
+  {"url": "/mr/gallery", "title": "फोटो व व्हिडिओ गॅलरी | मातोश्री फ्रूट्स", "description": "ताजी आवक, मंडी आणि पॅकिंगचे वास्तव फोटो."},
+  {"url": "/en/gallery", "title": "Photo & video gallery | Matoshree Fruits", "description": "Real photos of fresh arrivals, the mandi and packing."},
+  {"url": "/hi/contact", "title": "संपर्क करें | मातोश्री फ्रूट्स", "description": "फ़ोन, पता और व्यवसाय की जानकारी।"},
+  {"url": "/mr/contact", "title": "संपर्क | मातोश्री फ्रूट्स", "description": "फोन, पत्ता आणि व्यवसायाची माहिती."},
+  {"url": "/en/contact", "title": "Contact us | Matoshree Fruits", "description": "Phone, address and business details."},
+  {"url": "/hi/feedback", "title": "प्रतिक्रिया | मातोश्री फ्रूट्स", "description": "मातोश्री फ्रूट्स के साथ अपना अनुभव हमें बताएँ।"},
+  {"url": "/mr/feedback", "title": "अभिप्राय | मातोश्री फ्रूट्स", "description": "मातोश्री फ्रूट्सबद्दल तुमचा अनुभव आम्हाला सांगा."},
+  {"url": "/en/feedback", "title": "Feedback | Matoshree Fruits", "description": "Tell us about your experience with Matoshree Fruits."}
+]

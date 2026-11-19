@@ -63,7 +63,7 @@ export default function FeedbackForm({ locale, t }) {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-line bg-background px-4 py-3 text-base text-foreground placeholder:text-muted/70 transition focus:border-brand focus:bg-surface focus:outline-none focus:ring-2 focus:ring-brand/20";
+    "w-full border border-line bg-background px-4 py-3 text-base text-foreground placeholder:text-muted/70 transition focus:border-brand focus:bg-surface focus:outline-none focus:ring-2 focus:ring-brand/20";
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-4">
@@ -104,7 +104,7 @@ export default function FeedbackForm({ locale, t }) {
 
       <div>
         <span className="mb-1.5 block text-sm font-medium text-foreground">
-          {f.rating} <span className="text-xs font-normal text-muted">({f.ratingHint})</span>
+          {f.rating} <span className="text-[13px] font-normal text-muted">({f.ratingHint})</span>
         </span>
         <div className="flex items-center gap-1.5">
           {[1, 2, 3, 4, 5].map((n) => (
@@ -114,7 +114,7 @@ export default function FeedbackForm({ locale, t }) {
               onClick={() => setRating((r) => (r === n ? 0 : n))}
               aria-label={`${n} — ${f.ratingLabels[n - 1]}`}
               aria-pressed={rating >= n}
-              className={`grid h-9 w-9 place-items-center rounded-lg border text-lg transition ${
+              className={`grid h-11 w-11 place-items-center border text-lg transition ${
                 rating >= n
                   ? "border-accent bg-accent-soft text-accent"
                   : "border-line bg-background text-muted/50 hover:text-accent"
@@ -159,7 +159,7 @@ export default function FeedbackForm({ locale, t }) {
       </div>
 
       {status === "error" && error && (
-        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+        <p role="alert" className="bg-red-50 px-4 py-3 text-base text-red-700">
           {error}
         </p>
       )}
@@ -167,14 +167,14 @@ export default function FeedbackForm({ locale, t }) {
       {status === "success" ? (
         <div
           role="status"
-          className="rounded-xl border border-brand/25 bg-brand-soft px-4 py-4"
+          className="border border-brand/25 bg-brand-soft px-4 py-4"
         >
-          <p className="text-sm font-semibold text-brand-dark">{f.success}</p>
-          <p className="mt-1 text-xs text-muted">{f.successNote}</p>
+          <p className="text-base font-semibold text-brand-dark">{f.success}</p>
+          <p className="mt-1 text-[13px] text-muted">{f.successNote}</p>
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="mt-3 text-xs font-semibold text-brand underline underline-offset-2"
+            className="mt-3 text-[13px] font-semibold text-brand underline underline-offset-2"
           >
             {f.submit}
           </button>
@@ -183,7 +183,7 @@ export default function FeedbackForm({ locale, t }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+          className="inline-flex w-full items-center justify-center gap-2 bg-brand px-6 py-3.5 text-base font-semibold text-white transition hover:bg-brand-dark disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
         >
           {status === "sending" ? f.submitting : f.submit}
         </button>

@@ -79,15 +79,15 @@ export default function GalleryClient({ items, locale, t }) {
                 setIndex(null);
               }}
               aria-pressed={on}
-              className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`inline-flex items-center gap-2 border px-4 py-2.5 text-sm font-medium transition ${
                 on
-                  ? "border-brand bg-brand text-white shadow-sm"
+                  ? "border-brand bg-brand text-white"
                   : "border-line bg-surface text-muted hover:border-brand/40 hover:text-brand-dark"
               }`}
             >
               {tab.label}
               <span
-                className={`rounded-full px-1.5 text-xs ${
+                className={`px-1.5 text-[13px] ${
                   on ? "bg-white/20 text-white" : "bg-background text-muted"
                 }`}
               >
@@ -104,7 +104,7 @@ export default function GalleryClient({ items, locale, t }) {
             key={item.id}
             type="button"
             onClick={() => setIndex(i)}
-            className="group relative aspect-square overflow-hidden rounded-2xl border border-line bg-brand-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
+            className="group relative aspect-square overflow-hidden border border-line bg-brand-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
           >
             <Image
               src={item.thumb || item.url}
@@ -115,12 +115,12 @@ export default function GalleryClient({ items, locale, t }) {
             />
             {item.kind === "video" && (
               <span className="absolute inset-0 grid place-items-center bg-black/25">
-                <span className="grid h-11 w-11 place-items-center rounded-full bg-white/90 text-brand-dark">
+                <span className="grid h-11 w-11 place-items-center bg-white/90 text-brand-dark">
                   <PlayIcon className="h-5 w-5" />
                 </span>
               </span>
             )}
-            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-left text-xs font-medium text-white opacity-0 transition group-hover:opacity-100">
+            <span className="absolute inset-x-0 bottom-0 bg-black/70 p-3 text-left text-[13px] text-white opacity-0 transition group-hover:opacity-100">
               {item.title}
             </span>
           </button>
@@ -139,14 +139,14 @@ export default function GalleryClient({ items, locale, t }) {
             className="absolute right-4 top-4 flex items-center gap-2"
             onClick={(e) => e.stopPropagation()}
           >
-            <span className="rounded-full bg-white/10 px-3 py-1.5 text-xs text-white">
+            <span className="bg-white/10 px-3 py-1.5 text-[13px] text-white">
               {index + 1} / {visible.length}
             </span>
             <button
               type="button"
               onClick={close}
               aria-label={t.common.close}
-              className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+              className="grid h-12 w-12 place-items-center bg-white/10 text-white transition hover:bg-white/20"
             >
               <CloseIcon />
             </button>
@@ -159,7 +159,7 @@ export default function GalleryClient({ items, locale, t }) {
               e.stopPropagation();
               step(-1);
             }}
-            className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20 sm:left-6"
+            className="absolute left-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center bg-white/10 text-2xl text-white transition hover:bg-white/20 sm:left-6"
           >
             ‹
           </button>
@@ -177,19 +177,19 @@ export default function GalleryClient({ items, locale, t }) {
                 controls
                 autoPlay
                 playsInline
-                className="max-h-[70vh] w-full rounded-2xl bg-black object-contain"
+                className="max-h-[70vh] w-full bg-black object-contain"
               />
             ) : (
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={active.url}
                 alt={active.title}
-                className="max-h-[70vh] w-auto max-w-full rounded-2xl object-contain"
+                className="max-h-[70vh] w-auto max-w-full object-contain"
               />
             )}
             <div className="mt-4 max-w-2xl text-center">
               <p className="text-base font-semibold text-white">{active.title}</p>
-              <p className="mt-1 text-xs text-white/70">
+              <p className="mt-1 text-[13px] text-white/70">
                 {formatDate(active.publishedAt, locale, {
                   day: "numeric",
                   month: "short",
@@ -216,7 +216,7 @@ export default function GalleryClient({ items, locale, t }) {
               e.stopPropagation();
               step(1);
             }}
-            className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white/10 text-2xl text-white transition hover:bg-white/20 sm:right-6"
+            className="absolute right-3 top-1/2 grid h-11 w-11 -translate-y-1/2 place-items-center bg-white/10 text-2xl text-white transition hover:bg-white/20 sm:right-6"
           >
             ›
           </button>
@@ -224,8 +224,8 @@ export default function GalleryClient({ items, locale, t }) {
       )}
 
       {visible.length === 0 && (
-        <div className="rounded-2xl border border-dashed border-line bg-surface/60 px-6 py-14 text-center">
-          <span className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-2xl bg-brand-soft text-brand">
+        <div className="border border-dashed border-line bg-surface/60 px-6 py-14 text-center">
+          <span className="mx-auto mb-4 grid h-12 w-12 place-items-center bg-brand-soft text-brand">
             <CameraIcon className="h-6 w-6" />
           </span>
           <p className="text-base font-semibold text-brand-dark">{t.gallery.empty}</p>

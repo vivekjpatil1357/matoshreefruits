@@ -26,7 +26,7 @@ export default function PostCard({ post, locale, t, aspect = "video" }) {
   const ratio = aspect === "wide" ? "aspect-[16/9]" : "aspect-[4/3]";
 
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+    <article className="flex h-full flex-col overflow-hidden border border-line bg-surface">
       {hasMedia ? (
         <div className={`relative w-full overflow-hidden bg-brand-soft ${ratio}`}>
           {video ? (
@@ -49,18 +49,18 @@ export default function PostCard({ post, locale, t, aspect = "video" }) {
         </div>
       ) : (
         <div className="relative flex items-center gap-3 bg-brand-soft px-5 py-4">
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-surface text-brand">
+          <span className="grid h-9 w-9 shrink-0 place-items-center bg-surface text-brand">
             <CameraIcon className="h-5 w-5" />
           </span>
-          <span className="text-xs font-medium text-brand-dark">
+          <span className="text-[13px] font-medium text-brand-dark">
             {t.gallery.noMedia}
           </span>
         </div>
       )}
 
       <div className="flex flex-1 flex-col p-5">
-        <div className="mb-2 flex flex-wrap items-center gap-2 text-[11px]">
-          <span className={`rounded-full px-2.5 py-1 font-semibold ${badge.className}`}>
+        <div className="mb-2 flex flex-wrap items-center gap-2 text-[13px]">
+          <span className={`px-2.5 py-1 font-semibold ${badge.className}`}>
             {badge.label}
           </span>
           {post.publishedAt && (
@@ -82,7 +82,7 @@ export default function PostCard({ post, locale, t, aspect = "video" }) {
 
         <h3 className="text-lg font-bold leading-snug text-brand-dark">{title}</h3>
         {body && (
-          <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted">{body}</p>
+          <p className="mt-2 line-clamp-3 text-base leading-relaxed text-muted">{body}</p>
         )}
 
         <div className="mt-auto pt-4">
