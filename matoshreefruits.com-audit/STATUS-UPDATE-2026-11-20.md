@@ -21,6 +21,8 @@ from 2026-11-11.
 | Desktop footer CLS | Fixed in code | Footer reserves space with `min-h-[400px]` |
 | Missing subpage `h1` | Fixed in code | Stock, gallery, contact, and feedback use `SectionHeading as="h1"` |
 | Long title suffix | Fixed in code | Localized `meta.brand` is used for the child-page title template |
+| Dedicated social card | Fixed in code | `public/social-card.jpg` is a verified 1200x630 asset |
+| Gallery lint effect warning | Fixed in code | `GalleryClient` initializes from `initialPostId` instead of setting state in an effect |
 
 The production build passed after these changes. The repository lint command
 still reports a pre-existing React hook rule violation in

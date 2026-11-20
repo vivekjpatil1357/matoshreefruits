@@ -15,7 +15,9 @@ import { formatDate } from "@/lib/localize";
  */
 export default function GalleryClient({ items, locale, t, initialPostId = "" }) {
   const [filter, setFilter] = useState("all");
-  const [index, setIndex] = useState(null);
+  const [index, setIndex] = useState(() =>
+    initialPostId && items.some((item) => item.postId === initialPostId) ? 0 : null
+  );
 
   const scopedItems = useMemo(
     () =>
@@ -53,10 +55,6 @@ export default function GalleryClient({ items, locale, t, initialPostId = "" }) 
       document.body.style.overflow = "";
     };
   }, [index, close, step]);
-
-  useEffect(() => {
-    if (initialPostId && visible.length > 0) setIndex(0);
-  }, [initialPostId, visible.length]);
 
   // Swipe navigation for touch (mobile) — swipe left/right to step.
   const touchX = useRef(null);

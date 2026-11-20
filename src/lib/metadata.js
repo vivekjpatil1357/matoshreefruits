@@ -18,7 +18,7 @@ import { LOCALES, DEFAULT_LOCALE } from "@/lib/i18n";
 import { SITE_URL, BUSINESS_NAME } from "@/lib/site";
 
 /** Landscape social card already shipped in /public. */
-const OG_IMAGE = { width: 1600, height: 1032 };
+const OG_IMAGE = { width: 1200, height: 630 };
 
 /** Open Graph wants underscore locales (hi → hi_IN). */
 const OG_LOCALE = { hi: "hi_IN", mr: "mr_IN", en: "en_IN" };
@@ -44,7 +44,7 @@ function pageUrl(locale, path = "") {
  */
 export function pageMetadata({ locale, path = "", title, description, socialTitle }) {
   const url = pageUrl(locale, path);
-  const image = `${SITE_URL}/hero-leaves.jpg`;
+  const image = `${SITE_URL}/social-card.jpg`;
   const cardTitle = socialTitle || `${title} | ${BUSINESS_NAME}`;
 
   return {
