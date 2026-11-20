@@ -130,7 +130,7 @@ export default function Footer({ locale, nav, t }) {
             © {year} {BUSINESS_NAME}. {t.footer.rights}{" "}
             <Link
               href="/admin/login"
-              className="text-[13px] text-muted/50 transition hover:text-muted"
+              className="text-[13px] text-muted transition hover:text-brand"
             >
               Admin
             </Link>

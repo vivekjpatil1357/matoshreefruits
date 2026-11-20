@@ -1,4 +1,5 @@
 import { getMessages } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/metadata";
 import { CONTACT, BUSINESS_NAME, SITE_URL } from "@/lib/site";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import SectionHeading from "../components/SectionHeading";
@@ -89,7 +90,12 @@ function buildContactJsonLd({ locale, t }) {
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = getMessages(locale);
-  return { title: t.contact.heading, description: t.contact.sub };
+  return pageMetadata({
+    locale,
+    path: "contact",
+    title: t.contact.heading,
+    description: t.contact.sub,
+  });
 }
 
 function ContactCard({ icon: Icon, label, value, href, unavailableLabel }) {
@@ -168,6 +174,7 @@ export default async function ContactPage({ params }) {
         dangerouslySetInnerHTML={{ __html: contactJsonLd }}
       />
       <SectionHeading
+        as="h1"
         title={t.contact.heading}
         subtitle={t.contact.sub}
       />

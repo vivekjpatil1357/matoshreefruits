@@ -1,4 +1,5 @@
 import { getMessages } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/metadata";
 import { getLivePosts } from "@/lib/content";
 import { localizedField } from "@/lib/localize";
 import { mediaUrl, thumbnailUrl, isVideo } from "@/lib/media";
@@ -62,7 +63,12 @@ function buildGalleryJsonLd({ locale, items, t }) {
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = getMessages(locale);
-  return { title: t.gallery.heading, description: t.gallery.sub };
+  return pageMetadata({
+    locale,
+    path: "gallery",
+    title: t.gallery.heading,
+    description: t.gallery.sub,
+  });
 }
 
 export default async function GalleryPage({ params, searchParams }) {
@@ -101,6 +107,7 @@ export default async function GalleryPage({ params, searchParams }) {
         dangerouslySetInnerHTML={{ __html: galleryJsonLd }}
       />
       <SectionHeading
+        as="h1"
         eyebrow={t.meta.tagline}
         title={t.gallery.heading}
         subtitle={t.gallery.sub}

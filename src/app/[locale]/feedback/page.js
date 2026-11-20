@@ -1,4 +1,5 @@
 import { getMessages } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/metadata";
 import { getApprovedFeedback } from "@/lib/content";
 import { formatDate } from "@/lib/localize";
 import SectionHeading from "../components/SectionHeading";
@@ -8,7 +9,12 @@ import Stars from "../components/Stars";
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = getMessages(locale);
-  return { title: t.feedback.heading, description: t.feedback.sub };
+  return pageMetadata({
+    locale,
+    path: "feedback",
+    title: t.feedback.heading,
+    description: t.feedback.sub,
+  });
 }
 
 export default async function FeedbackPage({ params }) {
@@ -19,6 +25,7 @@ export default async function FeedbackPage({ params }) {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeading
+        as="h1"
         title={t.feedback.heading}
         subtitle={t.feedback.sub}
       />

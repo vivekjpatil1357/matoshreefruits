@@ -12,10 +12,12 @@
   allows `/` for all user agents, disallows `/admin` and `/api`, points at
   the sitemap.
 - **Per-page metadata**: the [locale layout](../src/app/[locale]/layout.js)
-  `generateMetadata()` builds `title` (with a `%s | …` template) and
-  `description` from the messages (`meta` section of
-  [`../src/messages/`](../src/messages)), `alternates.languages` (hreflang
-  links for the three locales in the `<head>`), and `<html lang={locale}>`.
+  and [`../src/lib/metadata.js`](../src/lib/metadata.js) build localized
+  titles, descriptions, absolute canonical URLs, `alternates.languages`
+  hreflang links (including `x-default`), and Open Graph/Twitter cards.
+  Public subpages call the shared helper with their route path so each page
+  points to its own canonical and hreflang URLs. The layout also sets
+  `<html lang={locale}>`.
 - **Admin is never indexed**: [`../src/app/admin/layout.js`](../src/app/admin/layout.js)
   sets `robots: { index: false, follow: false }`.
 - **Icon**: [`../src/app/icon.png`](../src/app/icon.png) is served as the
@@ -23,13 +25,10 @@
 
 ## Known gaps (current code, not yet implemented)
 
-- No `metadataBase` — relative canonical/OG URLs resolve against the request
-  host; absolute URL generation for social cards is therefore not configured.
-- No `canonical` link emitted for any page (hreflang alternates exist in the
-  sitemap only, not in page `<head>`).
-- No JSON-LD structured data (`ld+json` appears nowhere in `src/`) — no
-  Organization / Product / FAQ schema for rich results.
-- No Open Graph / Twitter card images configured per page.
-
-These are candidate follow-ups, documented here so the next pass can pick
-them up without re-reading the source.
+- Production URL configuration still depends on
+  `NEXT_PUBLIC_SITE_URL` being set to the canonical `www` domain in Vercel.
+  The local fallback is intended for development only.
+- Social cards currently reuse `public/hero-leaves.jpg`; a dedicated 1200x630
+  social image could improve sharing previews.
+- The sitemap and JSON-LD schemas use English labels for some structural names;
+  localized schema labels could be added if search testing shows a benefit.

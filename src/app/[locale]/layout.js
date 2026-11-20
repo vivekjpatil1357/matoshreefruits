@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Baloo_2, Mukta } from "next/font/google";
 import { LOCALES, DEFAULT_LOCALE, getMessages, isValidLocale } from "@/lib/i18n";
 import { INSTAGRAM_URL, CONTACT, BUSINESS_NAME, SITE_URL } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -124,26 +125,23 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = getMessages(isValidLocale(locale) ? locale : DEFAULT_LOCALE);
-  const BASE =
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.matoshreefruits.com";
-  const canonical = `${BASE.replace(/\/$/, "")}/${locale}`;
+  const safeLocale = isValidLocale(locale) ? locale : DEFAULT_LOCALE;
+  const t = getMessages(safeLocale);
 
   return {
+    ...pageMetadata({
+      locale: safeLocale,
+      path: "",
+      title: t.meta.siteName,
+      // The homepage title already carries the brand — don't append it twice.
+      socialTitle: t.meta.siteName,
+      description: t.meta.description,
+    }),
+    // Template reaches child segments only, so subpages render
+    // "<page title> | <brand>" instead of the full keyword-rich site name.
     title: {
       default: t.meta.siteName,
-      template: `%s | ${t.meta.siteName}`,
-    },
-    description: t.meta.description,
-    metadataBase: new URL(BASE),
-    alternates: {
-      canonical,
-      languages: {
-        ...Object.fromEntries(
-          LOCALES.map((l) => [l, `${BASE.replace(/\/$/, "")}/${l}`])
-        ),
-        "x-default": `${BASE.replace(/\/$/, "")}/${DEFAULT_LOCALE}`,
-      },
+      template: `%s | ${t.meta.brand}`,
     },
   };
 }

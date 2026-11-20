@@ -1,4 +1,5 @@
 import { getMessages } from "@/lib/i18n";
+import { pageMetadata } from "@/lib/metadata";
 import { getStockItems } from "@/lib/content";
 import { buildWhatsAppLink } from "@/lib/whatsapp";
 import { SITE_URL, BUSINESS_NAME } from "@/lib/site";
@@ -72,7 +73,12 @@ function buildStockJsonLd({ locale, items, t }) {
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = getMessages(locale);
-  return { title: t.stock.heading, description: t.stock.sub };
+  return pageMetadata({
+    locale,
+    path: "stock",
+    title: t.stock.heading,
+    description: t.stock.sub,
+  });
 }
 
 export default async function StockPage({ params }) {
@@ -95,6 +101,7 @@ export default async function StockPage({ params }) {
         dangerouslySetInnerHTML={{ __html: stockJsonLd }}
       />
       <SectionHeading
+        as="h1"
         title={t.stock.heading}
         subtitle={t.stock.sub}
         action={
