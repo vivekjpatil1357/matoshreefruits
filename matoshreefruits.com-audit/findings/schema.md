@@ -1,5 +1,9 @@
 # Schema.org Structured Data Audit — matoshreefruits.com
 
+> **Implementation status updated 2026-11-20:** The zero-schema result below
+> is historical. JSON-LD now exists in the locale layout and public listing
+> pages; see [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md).
+
 > **Status vs repo (`ab454ed`, verified 2026-11-11):** **Still open.** No
 > `application/ld+json`, microdata or RDFa anywhere in `src/` — none of the
 > recommended schema types are implemented yet. The ready-to-paste snippets

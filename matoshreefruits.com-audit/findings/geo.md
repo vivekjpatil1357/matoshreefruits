@@ -1,5 +1,11 @@
 # GEO (Generative Engine Optimization) Audit — Matoshree Fruits
 
+> **Implementation status updated 2026-11-20:** `/llms.txt` and
+> `/llms-full.txt` now exist in the repository, and JSON-LD is present on
+> public pages. The historical crawl results below are retained; see
+> [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md) for
+> remaining production and authority work.
+
 **Target:** https://www.matoshreefruits.com  
 **Audited:** 2026-11-11  
 **Business:** Hindi/Marathi banana wholesale (B2B, India) — direct from farmers to traders

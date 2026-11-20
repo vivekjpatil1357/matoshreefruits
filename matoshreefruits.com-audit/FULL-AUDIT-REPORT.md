@@ -6,6 +6,11 @@
 **Business Type:** B2B Farmer-Direct Banana Wholesaler (Banana, Sarola, Burhanpur, MP)  
 **Overall SEO Health Score:** **62 / 100**
 
+> **Historical snapshot:** This report reflects the 2026-11-11 crawl and is
+> not a current implementation-status report. See
+> [`STATUS-UPDATE-2026-11-20.md`](./STATUS-UPDATE-2026-11-20.md) for verified
+> repository changes and remaining deployment work.
+
 ---
 
 ## 1. Executive Summary

@@ -1,5 +1,11 @@
 # Local SEO Audit Findings - Matoshree Fruits
 
+> **Implementation status updated 2026-11-20:** LocalBusiness and related
+> JSON-LD now exist in the locale layout. Google Business Profile, directory
+> listings, exact map coordinates, and any review-schema decision remain
+> business-side follow-ups; see
+> [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md).
+
 > **Status vs repo (`ab454ed`, verified 2026-11-11):**
 > - **Zero `LocalBusiness` schema** — *Still open* (no JSON-LD in `src/`).
 > - **"Testimonials are hardcoded"** — *Stale.* Home/feedback testimonial walls now render admin-approved `Feedback` documents from MongoDB (`src/app/[locale]/page.js`, `feedback/page.js`); they are still not schema-marked.

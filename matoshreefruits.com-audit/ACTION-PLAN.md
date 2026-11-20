@@ -2,42 +2,46 @@
 
 Prioritized implementation roadmap based on the comprehensive SEO audit.
 
+> **Current status:** See [`STATUS-UPDATE-2026-11-20.md`](./STATUS-UPDATE-2026-11-20.md).
+> The original roadmap below is retained as historical context; completed
+> items are marked and the remaining production step is listed first.
+
 ---
 
-## Phase 1: Critical Fixes (Week 1)
+## Phase 1: Critical Fixes (repository work complete; deployment pending)
 *Impact: Unblocks indexing, stops redirect waste, establishes core identity.*
 
-1. **Fix Host Canonical Mismatch (`.env.live`)**
+1. **[OPEN] Fix Host Canonical Mismatch (`.env.live` and Vercel)**
    - **Action:** Change `NEXT_PUBLIC_SITE_URL=https://matoshreefruits.com` to `https://www.matoshreefruits.com` in `.env.live` and in the Vercel project settings dashboard.
    - **Files:** `.env.live:14`, Vercel Environment Variables.
-2. **Configure `metadataBase` & Canonical Tags**
+2. **[DONE] Configure `metadataBase` & Canonical Tags**
    - **Action:** Add `metadataBase` to `next.config.mjs` and configure explicit canonical URLs and absolute hreflang alternates in `src/app/[locale]/layout.js`.
    - **Files:** `next.config.mjs`, `src/app/[locale]/layout.js`.
-3. **Inject LocalBusiness & Organization Schema**
+3. **[DONE] Inject LocalBusiness & Organization Schema**
    - **Action:** Add the JSON-LD `@graph` script block (LocalBusiness, Organization, WebSite) into the root layout (`src/app/[locale]/layout.js`).
    - **Files:** `src/app/[locale]/layout.js`.
 
 ---
 
-## Phase 2: High-Impact Improvements (Weeks 2–3)
+## Phase 2: High-Impact Improvements (repository work complete)
 *Impact: Enhances security, AI discoverability, and UX performance.*
 
-1. **Add Security Headers**
+1. **[DONE] Add Security Headers**
    - **Action:** Configure `headers()` in `next.config.mjs` for `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`, `X-Frame-Options: SAMEORIGIN`, and CSP.
    - **Files:** `next.config.mjs`.
-2. **Add `llms.txt` and `llms-full.txt`**
+2. **[DONE] Add `llms.txt` and `llms-full.txt`**
    - **Action:** Create an Edge route handler at `src/app/llms.txt/route.js` serving LLM-friendly markdown summaries of the business and stock pages.
    - **Files:** `src/app/llms.txt/route.js`.
-3. **Fix Desktop Footer CLS**
+3. **[DONE] Fix Desktop Footer CLS**
    - **Action:** Add `min-h-[400px]` (or appropriate height) to the footer element in `src/app/[locale]/components/Footer.js`.
    - **Files:** `src/app/[locale]/components/Footer.js`.
-4. **Optimize Homepage Title Tag**
+4. **[DONE] Optimize Homepage Title Tag**
    - **Action:** Update locale translation JSON files (`messages/hi.json`, `mr.json`, `en.json`) to include wholesale keyword modifiers in the site title.
    - **Files:** `messages/*.json`.
 
 ---
 
-## Phase 3: Content & Local Authority (Month 2)
+## Phase 3: Content & Local Authority (after production verification)
 *Impact: Drives local pack rankings and AI search citations.*
 
 1. **Claim & Optimize Google Business Profile**
@@ -49,7 +53,7 @@ Prioritized implementation roadmap based on the comprehensive SEO audit.
 
 ---
 
-## Phase 4: Monitoring & Iteration (Ongoing)
+## Phase 4: Monitoring & Iteration (after redeploy)
 *Impact: Sustains long-term growth and traffic.*
 
 1. **Google Search Console Monitoring**

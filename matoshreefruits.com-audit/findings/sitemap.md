@@ -1,5 +1,11 @@
 # XML Sitemap & Robots.txt Audit — matoshreefruits.com
 
+> **Implementation status updated 2026-11-20:** The sitemap now includes
+> `x-default` in code. The host mismatch remains a deployment configuration
+> issue until Vercel Production uses
+> `NEXT_PUBLIC_SITE_URL=https://www.matoshreefruits.com`. See
+> [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md).
+
 ## Executive Summary
 - **Sitemap Status:** Valid XML, reachable at `https://matoshreefruits.com/sitemap.xml`
 - **Critical Finding (F1):** The sitemap and `robots.txt` declare all URLs as non-www (`https://matoshreefruits.com/...`), but the live site canonical is www (`https://www.matoshreefruits.com/`). Every single URL in the sitemap results in a `308 Permanent Redirect`.

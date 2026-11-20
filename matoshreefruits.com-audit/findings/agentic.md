@@ -1,5 +1,10 @@
 # Agentic Browsing Readiness — matoshreefruits.com
 
+> **Implementation status updated 2026-11-20:** The historical status block
+> below predates the repository fixes. Robots AI groups, `llms.txt`, absolute
+> hreflang, and footer contrast have since been addressed; see
+> [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md).
+
 > **Status vs repo (`ab454ed`, verified 2026-11-11):**
 > - **P0 robots AI groups** — *Still open* (`src/app/robots.js` still one `*` group).
 > - **P1 llms.txt** — *Still open* (no llms.txt route/file in the repo).

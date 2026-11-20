@@ -1,5 +1,10 @@
 # Performance Audit Findings - 2026-11-11
 
+> **Implementation status updated 2026-11-20:** The footer
+> `min-height` and security headers are now present in code. The PSI values
+> below remain historical measurements; see
+> [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md).
+
 > **Status vs repo (`ab454ed`, verified 2026-11-11):**
 > - **§1 footer `min-height`** — *Still open.* `src/app/[locale]/components/Footer.js:36` still has no `min-h-*`.
 > - **§2 render-blocking CSS / §3 unused JS** — *Not verifiable from source.* Depends on build output; `next.config.mjs` has no related tuning.

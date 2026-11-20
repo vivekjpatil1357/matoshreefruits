@@ -1,4 +1,11 @@
 # Technical SEO Audit — matoshreefruits.com
+
+> **Implementation status updated 2026-11-20:** This is historical crawl
+> evidence. See [`../STATUS-UPDATE-2026-11-20.md`](../STATUS-UPDATE-2026-11-20.md)
+> for current repository status; canonical, hreflang, security-header, and
+> structured-data findings below were addressed in code, while the production
+> `NEXT_PUBLIC_SITE_URL` deployment setting remains open.
+
 **Date:** 2026-11-11  
 **Crawl:** 15 locale pages (hi/mr/en × 5 paths)  
 **Stack:** Next.js 16.4.2 (Vercel, prerendered/SSR)
